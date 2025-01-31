@@ -1,0 +1,23 @@
+[
+	{
+		"ClientID": 0,
+		"FirstName": "FIRSTNAME",
+		"LastName": "LASTNAME",
+		"EmailAddress": "newemail@address.com",
+		"Visible": true
+	},
+	{
+		"ClientID": 1,
+		"FirstName": "Timmy",
+		"LastName": "Tester",
+		"EmailAddress": "tester@address.com",
+		"Visible": true
+	},
+	{
+		"ClientID": 2,
+		"FirstName": "Big",
+		"LastName": "Bad",
+		"EmailAddress": "Wolf@address.com",
+		"Visible": true
+	}
+]
