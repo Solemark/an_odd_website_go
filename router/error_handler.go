@@ -1,6 +1,7 @@
 package router
 
 import (
+	"an_odd_website/router/common"
 	"encoding/json"
 	"log"
 	"net/http"
@@ -10,10 +11,7 @@ func errorHandler(w http.ResponseWriter, e error) {
 	if e != nil {
 		o, e := json.Marshal(e)
 		CheckAndLogError(e)
-
-		w.Header().Set("Content-Type", "application/json")
-		w.WriteHeader(http.StatusNotFound)
-		w.Write(o)
+		common.SendContent(w, common.JSON_RESPONSE, o)
 	}
 }
 

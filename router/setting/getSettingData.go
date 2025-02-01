@@ -1,4 +1,4 @@
-package settingRouter
+package setting
 
 import (
 	"an_odd_website/router"

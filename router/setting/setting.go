@@ -1,4 +1,4 @@
-package settingRouter
+package setting
 
 type Setting struct {
 	Name    string

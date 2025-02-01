@@ -1,7 +1,7 @@
 /**
  * @typedef Employee
  * @type {object}
- * @property {number} EmployeeID - employee id
+ * @property {number} Id - employee id
  * @property {string} FirstName - employee first name
  * @property {string} LastName - employee last name
  * @property {string} EmailAddress - employee email address
@@ -48,8 +48,8 @@ const displayDialog = (id, option) => {
  */
 const updateTable = (data) => {
     let tbody = document.getElementById("employee-table")
-    let index = 1
     data.forEach(employee => {
+        let i = employee.Id
         let row = document.createElement("tr")
         let id = document.createElement("td")
         let fn = document.createElement("td")
@@ -61,14 +61,14 @@ const updateTable = (data) => {
         let eb = document.createElement("button")
         eb.setAttribute("type", "button")
         eb.setAttribute("class", "yellowButton")
-        eb.setAttribute("onclick", `displayDialog(${index}, "edit")`)
+        eb.setAttribute("onclick", `displayDialog(${i}, "edit")`)
 
         let rb = document.createElement("button")
         rb.setAttribute("type", "button")
         rb.setAttribute("class", "redButton")
-        rb.setAttribute("onclick", `displayDialog(${index}, "remove")`)
+        rb.setAttribute("onclick", `displayDialog(${i}, "remove")`)
 
-        id.innerHTML = employee.EmployeeID
+        id.innerHTML = i
         fn.innerHTML = employee.FirstName
         ln.innerHTML = employee.LastName
         ea.innerHTML = employee.EmailAddress
@@ -78,7 +78,6 @@ const updateTable = (data) => {
         bc.append(eb, rb)
         row.append(id, fn, ln, ea, bc)
         tbody.append(row)
-        index++
     })
 }
 

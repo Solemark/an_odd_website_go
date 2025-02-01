@@ -2,32 +2,19 @@ package main
 
 import (
 	"an_odd_website/router"
-	clientRouter "an_odd_website/router/clients"
-	employeeRouter "an_odd_website/router/employees"
-	settingRouter "an_odd_website/router/settings"
+	"an_odd_website/router/client"
+	"an_odd_website/router/employee"
+	"an_odd_website/router/setting"
 	"log"
 	"net/http"
 )
 
-func setSettingRoutes() {
-	http.HandleFunc("/data/settings", settingRouter.GetSettingData)
-	http.HandleFunc("/data/settings/update", settingRouter.UpdateSetting)
-}
-
-//func setAccountingRoutes() {}
-
-func setEmployeeRoutes() {
-	http.HandleFunc("/data/employees", employeeRouter.GetEmployeeData)
-	http.HandleFunc("/data/employees/new", employeeRouter.NewEmployee)
-	http.HandleFunc("/data/employees/update", employeeRouter.UpdateEmployee)
-	http.HandleFunc("/data/employees/remove", employeeRouter.RemoveEmployee)
-}
-
-func setClientRoutes() {
-	http.HandleFunc("/data/clients", clientRouter.GetClientData)
-	http.HandleFunc("/data/clients/new", clientRouter.NewClient)
-	http.HandleFunc("/data/clients/update", clientRouter.UpdateClient)
-	http.HandleFunc("/data/clients/remove", clientRouter.RemoveClient)
+func main() {
+	setRoutes()
+	log.Println("Starting server at localhost:8080")
+	if err := http.ListenAndServe(":8080", nil); err != nil {
+		log.Fatal(err)
+	}
 }
 
 func setRoutes() {
@@ -41,10 +28,23 @@ func setRoutes() {
 	setSettingRoutes()
 }
 
-func main() {
-	setRoutes()
-	log.Println("Starting server at localhost:8080")
-	if err := http.ListenAndServe(":8080", nil); err != nil {
-		log.Fatal(err)
-	}
+func setClientRoutes() {
+	http.HandleFunc("/data/clients", client.GetClientData)
+	http.HandleFunc("/data/clients/new", client.NewClient)
+	http.HandleFunc("/data/clients/update", client.UpdateClient)
+	http.HandleFunc("/data/clients/remove", client.RemoveClient)
+}
+
+func setEmployeeRoutes() {
+	http.HandleFunc("/data/employees", employee.GetEmployeeData)
+	http.HandleFunc("/data/employees/new", employee.NewEmployee)
+	http.HandleFunc("/data/employees/update", employee.UpdateEmployee)
+	http.HandleFunc("/data/employees/remove", employee.RemoveEmployee)
+}
+
+//func setAccountingRoutes() {}
+
+func setSettingRoutes() {
+	http.HandleFunc("/data/settings", setting.GetSettingData)
+	http.HandleFunc("/data/settings/update", setting.UpdateSetting)
 }
