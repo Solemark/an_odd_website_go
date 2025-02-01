@@ -1,8 +1,8 @@
 package client
 
 import (
-	"an_odd_website/router"
-	"an_odd_website/router/common"
+	"an_odd_website/src/router"
+	"an_odd_website/src/router/common"
 	"encoding/json"
 	"net/http"
 	"strconv"

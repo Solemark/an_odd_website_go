@@ -1,7 +1,7 @@
 package setting
 
 import (
-	"an_odd_website/router"
+	"an_odd_website/src/router"
 	"net/http"
 	"strconv"
 )

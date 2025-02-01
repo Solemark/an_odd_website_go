@@ -1,7 +1,7 @@
 package client
 
 import (
-	"an_odd_website/router"
+	"an_odd_website/src/router"
 	"encoding/csv"
 	"os"
 	"strconv"

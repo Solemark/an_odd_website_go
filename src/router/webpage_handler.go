@@ -1,7 +1,7 @@
 package router
 
 import (
-	"an_odd_website/router/common"
+	"an_odd_website/src/router/common"
 	"fmt"
 	"net/http"
 	"os"

@@ -2,7 +2,7 @@
 
 run code with:
 
-    go run name.go
+    go run src/main.go
 
 run tests with:
 
@@ -12,14 +12,14 @@ run tests with:
 
 build with:
 	
-	go build name.go
+	go build src/main.go
 	OR
-	go build -ldflags -w name.go
+	go build -ldflags -w src/name.go
 
 -ldflags -w removes debug symbols resulting in a smaller binary
 
 target another system with:
 
-	GOOS=platform GOARCH=system go build name.go
+	GOOS=platform GOARCH=system go build src/name.go
 	e.g
-	GOOS=windows GOARCH=amd64 go build name.go
+	GOOS=windows GOARCH=amd64 go build src/name.go
