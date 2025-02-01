@@ -9,15 +9,17 @@ import (
 
 func GetWebPage(w http.ResponseWriter, r *http.Request) {
 	url := r.URL.RequestURI()
-	var file []byte = []byte{}
+	var file []byte
 	var e error = nil
-
-	file, e = os.ReadFile(fmt.Sprintf("static/%s.html", url))
 	if url == "/" {
 		file, e = os.ReadFile("static/index.html")
+	} else {
+		file, e = os.ReadFile(fmt.Sprintf("static/%s.html", url))
 	}
 	errorHandler(w, e)
-	common.SendContent(w, common.HTML_RESPONSE, file)
+	if e == nil {
+		common.SendContent(w, common.HTML_RESPONSE, file)
+	}
 }
 
 func GetStyles(w http.ResponseWriter, r *http.Request) {
